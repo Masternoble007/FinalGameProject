@@ -28,9 +28,9 @@ namespace FinalGameProject
 
         public double rotation;
 
-        public Bullet(Game1 game, ContentManager content)
+        public Bullet(FinalGameProject game, ContentManager content)
         {
-            texture = content.Load<Texture2D>("projectile.png");
+            texture = content.Load<Texture2D>("projectile");
             screenHeight = game._graphics.PreferredBackBufferHeight;
             screenWidth = game._graphics.PreferredBackBufferWidth;
             bulletWidth = texture.Width;

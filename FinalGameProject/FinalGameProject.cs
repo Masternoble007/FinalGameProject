@@ -8,21 +8,18 @@ using System.Collections.Generic;
 
 namespace FinalGameProject
 {
-    public class Game1 : Game
+    public class FinalGameProject : Game
     {
         public GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         Player player;
+        List<Mig25> migs;
         int level;
         Texture2D background;
-        Texture2D SkyBackground;
-        SoundEffect gameOver;
         public float soundEffectVolume;
-        Song backgroundMusic;
-        float musicVolume;
         public int FRAME_RATE = 60;
         int score;
-        SpriteFont scoreFont;
+        SpriteFont _font;
         bool isGameOver;
         int width;
         int height;
@@ -31,7 +28,7 @@ namespace FinalGameProject
         bool nearX;
         bool nearY;
 
-        public Game1()
+        public FinalGameProject()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -43,13 +40,16 @@ namespace FinalGameProject
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            player = new Player(this, Content);
         }
 
         protected override void LoadContent()
         {
+            background = Content.Load<Texture2D>("tilesetOpenGameBackground");
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            _font = Content.Load<SpriteFont>("GameFont");
         }
 
         protected override void Update(GameTime gameTime)
@@ -64,11 +64,32 @@ namespace FinalGameProject
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.LightBlue);
+            _spriteBatch.Begin();
+            Rectangle r = new Rectangle(new Point(0, 0), new Point(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight));
+            _spriteBatch.Draw(background, r, Color.White);
 
+            if (!isGameOver)
+            {
+                player.Draw(_spriteBatch);
+                _spriteBatch.DrawString(_font, "Score: " + score, new Vector2(_graphics.PreferredBackBufferWidth / 2, 10), Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+            }
+            else
+            {
+                _spriteBatch.DrawString(_font, "Score: " + score, new Vector2((_graphics.PreferredBackBufferWidth / 2) - 200, (_graphics.PreferredBackBufferHeight / 2) - 100), Color.White, 0f, new Vector2(0, 0), 2f, SpriteEffects.None, 1);
+                _spriteBatch.DrawString(_font, "Press R to play again or ESC to quit", new Vector2((_graphics.PreferredBackBufferWidth / 2) - 530, (_graphics.PreferredBackBufferHeight / 2)), Color.White, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 1);
+            }
+            _spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        private void GameOver()
+        {
+            migs = null;
+            player = null;
+            isGameOver = true;
         }
     }
 }

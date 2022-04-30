@@ -18,7 +18,7 @@ namespace FinalGameProject
         public Vector2 origin;
         public List<Bullet> bullets;
 
-        public ModelBullet(ContentManager content, Game1 game)
+        public ModelBullet(ContentManager content, FinalGameProject game)
         {
             LoadContent(content);
             screenHeight = game._graphics.PreferredBackBufferHeight;

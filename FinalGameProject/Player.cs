@@ -33,12 +33,12 @@ namespace FinalGameProject
         public Stack<Bullet> inactiveBullets;
         public List<Bullet> activeBullets;
         ContentManager content;
-        Game1 game;
+        FinalGameProject game;
 
         bool shootLock = false;
         static int maxBullets = 20;
 
-        public Player(Game1 game, ContentManager content)
+        public Player(FinalGameProject game, ContentManager content)
         {
             screenHeight = game._graphics.PreferredBackBufferHeight;
             screenWidth = game._graphics.PreferredBackBufferWidth;
@@ -74,7 +74,7 @@ namespace FinalGameProject
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle((int)X, (int)Y, 300, 200), null, Color.White, ConvertToRadians(rotation + 180), origin, SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, new Rectangle((int)X, (int)Y, 48, 48), null, Color.White, ConvertToRadians(rotation + 180), origin, SpriteEffects.None, 0);
             foreach (Bullet b in activeBullets)
             {
                 if (b.isActive)
