@@ -27,12 +27,12 @@ namespace FinalGameProject
         int width;
         int height;
         int drawCount;
-        ModelBullet bulletModel;
         bool nearX;
         bool nearY;
         int maxMigs;
-        int migCount;
         SoundEffect migDestroyed;
+        Song backgroundMusic;
+        float musicVolume;
 
         public FinalGameProject()
         {
@@ -44,18 +44,18 @@ namespace FinalGameProject
         protected override void Initialize()
         {
             SetGraphics();
-            migCount = 0;
             migs = new List<Mig25>();
             closeMigs = new List<Mig25>();
-            migCount = 0;
             width = _graphics.PreferredBackBufferWidth;
             height = _graphics.PreferredBackBufferHeight;
             SetMigs();
-
+            musicVolume = 0.2f;
             // TODO: Add your initialization logic here
 
             base.Initialize();
             player = new Player(this, Content);
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.Volume = musicVolume;
             score = 0;
             isGameOver = false;
         }
@@ -68,6 +68,7 @@ namespace FinalGameProject
             // TODO: use this.Content to load your game content here
             _font = Content.Load<SpriteFont>("GameFont");
             migDestroyed = Content.Load<SoundEffect>("PlaneExploding");
+            backgroundMusic = Content.Load<Song>("Jack_Adkins-The_Bomb");
         }
 
         protected override void Update(GameTime gameTime)

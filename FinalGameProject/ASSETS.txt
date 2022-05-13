@@ -6,4 +6,4 @@ Midified to Content/Mig-25_blank.png
 
 Content/tilesetOpenGameBackground.png -created by PauR on OpenGameArg.org (https://opengameart.org/content/sky-background) and released under CC-BY 3.0
 
-//Note I forgot to add background credit from Project 6, please have mercy.
+Content/Jack_Adkins-The_Bomb.mp3 - Created by Jack Adkins (https://freemusicarchive.org/music/jack-adkins/single/the-bomb) released under CC-By-NC-SA license

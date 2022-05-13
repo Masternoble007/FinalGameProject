@@ -86,6 +86,12 @@
 /processorParam:TextureFormat=Compressed
 /build:GameFont.spritefont
 
+#begin Jack_Adkins-The_Bomb.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Jack_Adkins-The_Bomb.mp3
+
 #begin Mig-25_blank.png
 /importer:TextureImporter
 /processor:TextureProcessor

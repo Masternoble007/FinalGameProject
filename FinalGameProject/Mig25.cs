@@ -21,18 +21,20 @@ namespace FinalGameProject
 
         int frame;
         TimeSpan timer;
+
         static int screenWidth;
         static int screenHeight;
         public bool OffScreen = false;
         public bool Exploding = false;
         public bool Hit;
+
         public int width;
         public int height;
-
         static double speed;
         public CircleHitBox hitBox;
         public Color color;
         static Vector2 origin;
+        double rotation;
         static double scale;
         FinalGameProject game;
 
@@ -44,12 +46,9 @@ namespace FinalGameProject
             SetScale();
             timer = new TimeSpan(0);
             Hit = false;
-
             speed = (int)(42 * scale);
-
             width = texture.Width;
             height = texture.Height;
-
             Random random = new Random();
 
             X = random.Next(0, 3);
@@ -81,6 +80,7 @@ namespace FinalGameProject
             color = Color.White;
             origin = new Vector2(width / 2, height / 2);
             hitBox = new CircleHitBox((int)(52 * scale), X, Y);
+
             double slope = (playerY - Y) / (playerX - X);
             XDelta = Math.Sqrt(speed / ((slope * slope) + 1));
             YDelta = slope * XDelta;
@@ -106,13 +106,14 @@ namespace FinalGameProject
         {
             texture = content.Load<Texture2D>("Mig-25_blank");
             Explosion1 = content.Load<Texture2D>("Explosion1");
-            Explosion2 = content.Load<Texture2D>("Mig25ExplosionExplosion");
+            Explosion2 = content.Load<Texture2D>("Mig25Explosion");
         }
 
         public void Update(GameTime gameTime)
         {
             if (!Exploding)
             {
+                rotation += 0.1;
                 X += XDelta;
                 Y += YDelta;
                 hitBox.X = X;
@@ -129,7 +130,6 @@ namespace FinalGameProject
                 timer += gameTime.ElapsedGameTime;
                 Explode();
             }
-
         }
 
         private void Explode()
@@ -149,7 +149,7 @@ namespace FinalGameProject
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(currentTexture, new Rectangle((int)X, (int)Y, (int)(100 * scale), (int)(scale * 120)), null, color, 0, origin, SpriteEffects.None, 0);
+            spriteBatch.Draw(currentTexture, new Rectangle((int)X, (int)Y, (int)(100 * scale), (int)(scale * 120)), null, color, (float)rotation, origin, SpriteEffects.None, 0);
         }
 
         private void SetScale()
@@ -167,6 +167,5 @@ namespace FinalGameProject
                 scale = 1.4;
             }
         }
-
     }
 }
