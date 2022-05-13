@@ -2,3 +2,8 @@
 Modified to ﻿Content/f-16_blank.png
 
 Content/f-5_blank_strip3.png - created by kurohina on OpenGameArg.org (https://opengameart.org/content/f-5-and-f-16-blank) and released under CC-BY 4.0 
+Midified to Content/Mig-25_blank.png
+
+Content/tilesetOpenGameBackground.png -created by PauR on OpenGameArg.org (https://opengameart.org/content/sky-background) and released under CC-BY 3.0
+
+//Note I forgot to add background credit from Project 6, please have mercy.

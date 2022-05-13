@@ -74,7 +74,7 @@ namespace FinalGameProject
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle((int)X, (int)Y, 48, 48), null, Color.White, ConvertToRadians(rotation + 180), origin, SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, new Rectangle((int)X, (int)Y, 48, 48), null, Color.White, ConvertToRadians(rotation + 180), origin, SpriteEffects.FlipVertically, 0);
             foreach (Bullet b in activeBullets)
             {
                 if (b.isActive)
