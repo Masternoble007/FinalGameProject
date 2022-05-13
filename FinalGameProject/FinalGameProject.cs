@@ -44,6 +44,7 @@ namespace FinalGameProject
         protected override void Initialize()
         {
             SetGraphics();
+            level = 1;
             migs = new List<Mig25>();
             closeMigs = new List<Mig25>();
             width = _graphics.PreferredBackBufferWidth;
@@ -68,7 +69,7 @@ namespace FinalGameProject
             // TODO: use this.Content to load your game content here
             _font = Content.Load<SpriteFont>("GameFont");
             migDestroyed = Content.Load<SoundEffect>("PlaneExploding");
-            backgroundMusic = Content.Load<Song>("Jack_Adkins-The_Bomb");
+            backgroundMusic = Content.Load<Song>("Dee Yan-Key - glide");
         }
 
         protected override void Update(GameTime gameTime)
@@ -202,12 +203,12 @@ namespace FinalGameProject
                 {
                     m.Draw(_spriteBatch);
                 }
-                _spriteBatch.DrawString(_font, "Score: " + score, new Vector2(_graphics.PreferredBackBufferWidth / 2, 10), Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
+                _spriteBatch.DrawString(_font, "Score: " + score, new Vector2(_graphics.PreferredBackBufferWidth / 2, 10), Color.Purple, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 1);
             }
             else
             {
-                _spriteBatch.DrawString(_font, "Score: " + score, new Vector2((_graphics.PreferredBackBufferWidth / 2) - 200, (_graphics.PreferredBackBufferHeight / 2) - 100), Color.White, 0f, new Vector2(0, 0), 2f, SpriteEffects.None, 1);
-                _spriteBatch.DrawString(_font, "Press R to play again or ESC to quit", new Vector2((_graphics.PreferredBackBufferWidth / 2) - 530, (_graphics.PreferredBackBufferHeight / 2)), Color.White, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 1);
+                _spriteBatch.DrawString(_font, "Score: " + score, new Vector2((_graphics.PreferredBackBufferWidth / 2) - 200, (_graphics.PreferredBackBufferHeight / 2) - 100), Color.Purple, 0f, new Vector2(0, 0), 2f, SpriteEffects.None, 1);
+                _spriteBatch.DrawString(_font, "Press R to play again or ESC to quit", new Vector2((_graphics.PreferredBackBufferWidth / 2) - 430, (_graphics.PreferredBackBufferHeight / 2)), Color.Purple, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 1);
             }
             _spriteBatch.End();
             // TODO: Add your drawing code here

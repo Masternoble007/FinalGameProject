@@ -34,7 +34,6 @@ namespace FinalGameProject
         public CircleHitBox hitBox;
         public Color color;
         static Vector2 origin;
-        double rotation;
         static double scale;
         FinalGameProject game;
 
@@ -95,7 +94,7 @@ namespace FinalGameProject
             }
 
             this.game = game;
-            sprites = new Texture2D[5];
+            sprites = new Texture2D[3];
             sprites[0] = texture;
             sprites[1] = Explosion1;
             sprites[2] = Explosion2;
@@ -113,7 +112,6 @@ namespace FinalGameProject
         {
             if (!Exploding)
             {
-                rotation += 0.1;
                 X += XDelta;
                 Y += YDelta;
                 hitBox.X = X;
@@ -140,7 +138,7 @@ namespace FinalGameProject
                 currentTexture = sprites[frame];
                 timer -= new TimeSpan(0, 0, 0, 0, game.FRAME_RATE);
             }
-            if (frame == 4)
+            if (frame == 2)
             {
                 Exploding = false;
                 OffScreen = true;
@@ -149,7 +147,7 @@ namespace FinalGameProject
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(currentTexture, new Rectangle((int)X, (int)Y, (int)(100 * scale), (int)(scale * 120)), null, color, (float)rotation, origin, SpriteEffects.None, 0);
+            spriteBatch.Draw(currentTexture, new Rectangle((int)X, (int)Y, (int)(100 * scale), (int)(scale * 120)), null, color, 0, origin, SpriteEffects.None, 0);
         }
 
         private void SetScale()

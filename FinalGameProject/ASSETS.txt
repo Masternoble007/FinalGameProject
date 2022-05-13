@@ -6,4 +6,4 @@ Midified to Content/Mig-25_blank.png
 
 Content/tilesetOpenGameBackground.png -created by PauR on OpenGameArg.org (https://opengameart.org/content/sky-background) and released under CC-BY 3.0
 
-Content/Jack_Adkins-The_Bomb.mp3 - Created by Jack Adkins (https://freemusicarchive.org/music/jack-adkins/single/the-bomb) released under CC-By-NC-SA license
+Content/Dee Yan-Key - glide.mp3 - Created by Dee Yan-Key (https://freemusicarchive.org/music/Dee_Yan-Key/a-day-at-the-sea/glide/) released under CC BY-NC 4.0 license
